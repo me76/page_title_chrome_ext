@@ -1,1 +1,3 @@
-# page_title_chrome_ext
+# The Missing Titlebar extension for Chrome browser
+
+Chrome browser extension for showing page titles.
