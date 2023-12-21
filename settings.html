@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Titlebar settings</title>
+    <style>
+        div#fontBlock * {
+            margin: 8px;
+            font-size: 15px
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="fontBlock" style="width: 400px; height: 200px;">
+<label for="fontStyle">Title font style (ex.: bold italic 17px Arial, sans-serif)</label><br>
+<label for="fontStyle" style="font-size: 13px; color: grey">(clear the style to reset to default font)</label><br>
+<textarea id="fontStyle" cols="40" rows="5"></textarea><br>
+<button id="applyBtn"  style="position: absolute; right: 30px">Apply</button>
+<label id="status" style="position: absolute; margin-left: 10px; color: grey"></label>
+</div>
+
+<script src="process_settings.js"></script>
+
+</body>
+</html>
