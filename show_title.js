@@ -13,6 +13,15 @@ if(!titleDiv)
   titleDiv.style.display = 'block';
   titleDiv.innerHTML = document.title;
   document.body.prepend(titleDiv);
+
+  chrome.storage.onChanged.addListener(
+    (changes, areaName) => {
+      if(areaName == 'sync' && changes.fontStyle.newValue)
+      {
+          titleDiv.style.cssText += mainTitleStyles + '; font: ' + changes.fontStyle.newValue;
+      }
+    }
+  );
 }
 
 if(titleDiv.style.display == 'block')
@@ -31,15 +40,6 @@ chrome.storage.sync.get(
     {
       chrome.storage.sync.set( { fontStyle: defaultFontStyle } );
       titleDiv.style.cssText += mainTitleStyles + '; font: ' + defaultFontStyle;
-    }
-  }
-);
-
-chrome.storage.onChanged.addListener(
-  (changes, areaName) => {
-    if(areaName == 'sync' && changes.fontStyle.newValue)
-    {
-        titleDiv.style.cssText += mainTitleStyles + '; font: ' + changes.fontStyle.newValue;
     }
   }
 );
